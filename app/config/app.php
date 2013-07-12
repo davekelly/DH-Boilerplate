@@ -113,7 +113,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-//		'Toin0u\Geotools\GeotoolsServiceProvider',				// uncomment if installing via composer...
+		'Toin0u\Geotools\GeotoolsServiceProvider',				// comment out if un-needed
 	),
 
 	/*
@@ -178,7 +178,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-//		'Geotools' 		  => 'Toin0u\Geotools\GeotoolsFacade',			// uncomment if installing via composer
+		'Geotools' 		  => 'Toin0u\Geotools\GeotoolsFacade',			// comment out if un-needed
 
 	),
 

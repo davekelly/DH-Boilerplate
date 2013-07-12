@@ -32,9 +32,9 @@ The skeleton uses [LESS](http://lesscss.org) for stylesheets. You'll need to use
 good).
 
 ####JavaScript
-It includes a number of JavaScript libraries at `/public/js/bower_components/`. Versions can be set/updated using `/public/js/bower.json`
+It includes a number of JavaScript libraries at `/public/js/bower_components/`. Versions can be set/updated running `bower install` on `/public/js/bower.json`
 - [d3](http://github.com/mbostock/d3) `d3/d3.min.js`
-- [jQuery]https://github.com/jquery/jquery) `jquery/jquery.min.js`
+- [jQuery](https://github.com/jquery/jquery) `jquery/jquery.min.js`
 - [Leaflet.js](https://github.com/Leaflet/Leaflet) `leaflet/dist/leaflet.js`
 - [Modernizr](https://github.com/Modernizr/Modernizr) `modernizr/modernizr.js` (there's a .min.js version, but that's created by
 CodeKit, and is not downloaded as part of the library)

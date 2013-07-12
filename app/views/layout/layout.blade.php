@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title><?php echo (isset($pageTitle) ? $pageTitle : 'NUI Galway Project' );?></title>
+    <title><?php echo (isset( Config::get('author.project_title') ) ? Config::get('author.project_title') : 'NUI Galway Project' );?></title>
 
     <meta name="author" content="NUI Galway" />
     <meta name="copyright" content="Copyright NUI Galway" />
@@ -16,9 +16,9 @@
     <link rel="schema.DC" href="http://purl.org/DC/elements/1.1/" title="Dublin Core Metadata Element Set, Version 1.1" />
     
     <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" title="DCMI Elements and DCMI Qualifiers" />
-    <meta name="DC.title" lang="en" content="<?php echo (isset($pageTitle) ? $pageTitle : 'Digital Humanitites &amp; Social Sciences Research Directory | NUI Galway' );?>"/>
-    <meta name="DC.creator" content="" />
-    <meta name="DC.publisher" content="" />
+    <meta name="DC.title" lang="en" content="<?php echo (isset( Config::get('author.project_title') ) ? Config::get('author.project_title') : 'NUI Galway Project' );?>"/>
+    <meta name="DC.creator" content="<?php echo (isset( Config::get('author.primary_author_name') ) ? Config::get('author.primary_author_name') : 'NUI Galway' );?>" />
+    <meta name="DC.publisher" content="NUI Galway" />
     <meta name="DC.type" content="Text" />
     <meta name="DC.format" content="text/html" />
     <meta name="DC.rights" content ="NUI Galway. All rights reserved, <?php echo date('Y'); ?> "/>
@@ -26,8 +26,6 @@
     <meta name="DC.coverage" content="Global" />
     <meta name="DC.source" content="NUI Galway" />
     <meta name="DC.language" content="en_IE" />
-    
-    <link rel="alternate" href="{{ URL::to('rss') }}" title="NUIG Digital Humanitites &amp; Social Sciences Research" type="application/rss+xml" />
 
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">        
@@ -86,6 +84,29 @@
     </div>
 
   <footer id="page-footer" role="contentinfo">
+      <ul id="sponsors" class="span12">
+          <li>
+              <a href="http://nuigalway.ie" rel='external'>
+                  <img src="/img/logo-nuig.png" alt="NUI Galway" />
+              </a>
+          </li>
+          <li>
+              <a href="http://nuigalway.ie/mooreinstitute" rel='external'>
+                  <img src="/img/logo-moore.jpg" alt="Moore Institute" />
+              </a>
+          </li>
+          <li>
+              <a href="http://dho.ie" rel='external'>
+                  <img src="/img/logo-dho.png" alt="Digital Humanities Observatory" />
+              </a>
+          </li>
+          <li>
+              <a href="http://hea.ie" rel='external'>
+                  <img src="/img/logo-hea.png" alt="Higher Education Authority" />
+              </a>
+          </li>
+      </ul>
+
     <div id="footer-base" class="container">
         <nav id="footer-base-bottom" >
             <ul class="nav nav-pills pull-right">
@@ -100,7 +121,7 @@
 </div>
 
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script>window.jQuery && document.write(unescape('<script src="/js/bower_components/jquery.min.js"><\/script>'))</script>
 
   

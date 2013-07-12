@@ -11,25 +11,39 @@
 |
 */
 
+//--------------------------------------
+// Static Pages
+//======================================
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('static.home');
+});
+Route::get('/about', function(){
+	return View::make('static.about');
+});
+Route::get('/about/team', function(){
+	return View::make('static.about');
+});
+Route::get('/about/contact', function(){
+	return View::make('static.contact');
 });
 
+//--------------------------------------
+//	App routes
+//======================================
 //
-// Static Pages
-// 
-
-
+// .... go here...
 //
+
+//--------------------------------------
 // Documentation
-// 
+//======================================
 Route::get(Config::get('docs.basehref', '/docs/').'{chapter?}', 'DocumentationController@showDocs');
 
 
-//
+//--------------------------------------
 // Ver 1 API resources
-// 
+//======================================
 Route::group(array('prefix' => 'api/v1'), function() {
  
  	// => GET /api/v1/something
@@ -37,9 +51,9 @@ Route::group(array('prefix' => 'api/v1'), function() {
     Route::resource('something', 'ApiController', array('only' => array('index', 'show')));
 });
 
-//
+//--------------------------------------
 // 404 errors
-// 
+//======================================
 App::missing(function($exception)
 {
     return Response::view('errors.missing', array(), 404);

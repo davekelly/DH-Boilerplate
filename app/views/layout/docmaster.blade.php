@@ -54,9 +54,9 @@
             <div class="clearfix"></div>
         </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{{ url('js/vendor/jquery-1.8.2.min.js') }}"><\/script>')</script>
-        <script src="{{ url('js/vendor/prettify.js') }}"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{ url('js/bower_components/jquery-1.8.2.min.js') }}"><\/script>')</script>
+        <script src="{{ url('/js/bower_components/google-code-prettify/js-modules/prettify.js') }}"></script>
         <script src="{{ url('js/plugins.js') }}"></script>
         <script src="{{ url('js/main.js') }}"></script>
 
