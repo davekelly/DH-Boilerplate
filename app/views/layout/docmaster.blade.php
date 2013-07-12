@@ -14,7 +14,7 @@
         </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="{{ url('css/docs.css') }}">
+        <link rel="stylesheet" href="{{ url('css/style.css') }}">
         <script src="{{ url('js/bower_components/modernizr/modernizr.min.js') }}"></script>
     </head>
     <body>

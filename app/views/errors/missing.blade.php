@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout.layout_main')
 
 <?php
 	// view for /project/index

@@ -14,8 +14,7 @@
 //--------------------------------------
 // Static Pages
 //======================================
-Route::get('/', function()
-{
+Route::get('/', function(){
 	return View::make('static.home');
 });
 Route::get('/about', function(){

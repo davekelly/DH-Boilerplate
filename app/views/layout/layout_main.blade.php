@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title><?php echo (isset( Config::get('author.project_title') ) ? Config::get('author.project_title') : 'NUI Galway Project' );?></title>
+    <title>{{ Config::get('author.project_title', 'NUI Galway Project') }}</title>
 
     <meta name="author" content="NUI Galway" />
     <meta name="copyright" content="Copyright NUI Galway" />
@@ -16,8 +16,8 @@
     <link rel="schema.DC" href="http://purl.org/DC/elements/1.1/" title="Dublin Core Metadata Element Set, Version 1.1" />
     
     <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" title="DCMI Elements and DCMI Qualifiers" />
-    <meta name="DC.title" lang="en" content="<?php echo (isset( Config::get('author.project_title') ) ? Config::get('author.project_title') : 'NUI Galway Project' );?>"/>
-    <meta name="DC.creator" content="<?php echo (isset( Config::get('author.primary_author_name') ) ? Config::get('author.primary_author_name') : 'NUI Galway' );?>" />
+    <meta name="DC.title" lang="en" content="{{ Config::get('author.project_title', 'NUI Galway Project') }} "/>
+    <meta name="DC.creator" content="{{ Config::get('author.primary_author_name', 'NUI Galway') }}" />
     <meta name="DC.publisher" content="NUI Galway" />
     <meta name="DC.type" content="Text" />
     <meta name="DC.format" content="text/html" />
@@ -41,34 +41,37 @@
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">  
 
 <!--Start NUI Galway affiliate header-->
-<div id="nuigalway-header">
-  <div id="nuigalway-logo"> <a title="Go back to NUI Galway home" href="http://www.nuigalway.ie"><img src="http://www.nuigalway.ie/images/logo.png" width="176" height="50" alt="NUI Galway logo" /></a> </div>
-  <div id="search-bar">
-    <form method="get" id="search" action="http://search.nuigalway.ie/search">
-      <div id="search-form">
-        <label for="keywords" class="hide-text search-label">Search Keywords</label>
-        <input name="q" id="keywords" type="text" size="15" value="Search NUI Galway" />
-        <input name="site" value="nuig_all" type="hidden" />
-        <input name="client" value="nuig_frontend" type="hidden" />
-        <input name="output" value="xml_no_dtd" type="hidden" />
-        <input name="proxystylesheet" value="nuig_frontend" type="hidden" />
-        <input type="image" value="submit" id="search-button" alt="Search this site" src="http://www.nuigalway.ie/images/search-button.png" />
-      </div>
-    </form>
-  </div>
+<div id="nuigalway-header" class="row">
+  <header id="page-header" class="container">
+    <div id="nuigalway-logo" class="span3"> 
+      <a title="Go back to NUI Galway home" href="http://www.nuigalway.ie">
+        <img src="http://www.nuigalway.ie/images/logo.png" width="176" height="50" alt="NUI Galway logo" />
+      </a>
+    </div>
+    <div id="search-bar" class="span3 offset6">
+      <form method="get" id="search" action="http://search.nuigalway.ie/search">
+        <div id="search-form" class="search-form">
+          <label for="keywords" class="hide-text search-label">Search Keywords</label>
+          <input name="q" id="keywords" type="text" size="15" value="Search NUI Galway" />
+          <input name="site" value="nuig_all" type="hidden" />
+          <input name="client" value="nuig_frontend" type="hidden" />
+          <input name="output" value="xml_no_dtd" type="hidden" />
+          <input name="proxystylesheet" value="nuig_frontend" type="hidden" />
+          <input type="image" value="submit" id="search-button" alt="Search this site" src="http://www.nuigalway.ie/images/search-button.png" />
+        </div>
+      </form>
+    </div>
+  </header>
 </div>
 
-
-
-<body>
     
-<div class="hfeed page">         
+<div class="page row">         
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">    
     
 
     <div class="container" id="page-container">
         
-        <div id="main" class="row">
+        <div id="main">
             @if(Session::has('flash_notice'))
                 <div class="span12">                    
                     <div class="alert alert-warning">>
@@ -77,13 +80,26 @@
                     </div>
                 </div>
             @endif
-
+            
             @yield('content')
 
         </div> <!-- #main -->
     </div>
 
-  <footer id="page-footer" role="contentinfo">
+</div>
+
+<footer id="page-footer" class="row" role="contentinfo">
+  <div class="container">
+    
+      <nav id="footer-base-bottom" class="span12">
+          <ul class="nav nav-pills">
+            <li><a href="/">Home</a></li>
+            <li><a href="/docs">Documentation</a></li>
+            <li><a href="/docs/api">API</a></li>
+          </ul>
+      </nav>
+    
+
       <ul id="sponsors" class="span12">
           <li>
               <a href="http://nuigalway.ie" rel='external'>
@@ -107,18 +123,8 @@
           </li>
       </ul>
 
-    <div id="footer-base" class="container">
-        <nav id="footer-base-bottom" >
-            <ul class="nav nav-pills pull-right">
-              
-              <li><a href="/">Home</a></li>
-              <li><a href="/docs">Documentation</a></li>
-              <li><a href="/docs/api">API</a></li>
-            </ul>
-        </nav>
-    </div>
-  </footer>
-</div>
+  </div>
+</footer>
 
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
