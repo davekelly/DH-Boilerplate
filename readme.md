@@ -9,7 +9,10 @@ A bare-bones Laravel 4 app setup for projects.
 3. Fill in the details in `/app/config/author.php`
 
 
-It includes:
+##Routes
+
+
+##Components
 	
 ###[DocsReader](https://github.com/daylerees/docs-reader)
 The documentation is handled by the integrated [DocsReader](https://github.com/daylerees/docs-reader) which produces documentation from
