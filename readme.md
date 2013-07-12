@@ -1,21 +1,44 @@
-## Laravel PHP Framework
+# DH-Boilerplate
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
+A bare-bones Laravel 4 app setup for projects.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+##Configuration:
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+1. Run `composer install`
+2. Run `php artisan key:generate` to generate a new application key
+3. Fill in the details in `/app/config/author.php`
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## Official Documentation
+It includes:
+	
+###DocsReader[https://github.com/daylerees/docs-reader]
+The documentation is handled by the integrated DocsReader[https://github.com/daylerees/docs-reader] which produces documentation from
+Markdown files. You can find the files in `/docs`
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+###Solarium[https://github.com/basdenooijer/solarium] 
+Support for Solr[http://solr.apache.org]. This can be removed by deleting `"solarium/solarium": "2.4.0"` from `/composer.json`
 
-### Contributing To Laravel
+###GeoTools[https://github.com/toin0u/Geotools]
+"A geo-related library, built atop Geocoder and React libraries.". This can be removed by deleting `"toin0u/geotools-laravel": "@stable"` from `/composer.json`)
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+To enable GeoTools, you need to un-comment the GeoTools related lines in the `providers` and `aliases` sections of 
+`/app/config/app.php`. You can also use the `/app/config/geo.php` file for any geo related API keys, etc.
 
-### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+##Front-end related
+
+####LESS
+The skeleton uses LESS[http://lesscss.org] for stylesheets. You'll need to use a process them using something (CodeKit is 
+good).
+
+####JavaScript
+It includes a number of JavaScript libraries at `/public/js/bower_components/`. Versions can be set/updated using `/public/js/bower.json`
+- d3[http://github.com/mbostock/d3] `d3/d3.min.js`
+- jQuery[https://github.com/jquery/jquery] `jquery/jquery.min.js`
+- Leaflet.js[https://github.com/Leaflet/Leaflet] `leaflet/dist/leaflet.js`
+- Modernizr[https://github.com/Modernizr/Modernizr] `modernizr/modernizr.js` (there's a .min.js version, but that's created by
+CodeKit, and is not downloaded as part of the library)
+
+
+
+
