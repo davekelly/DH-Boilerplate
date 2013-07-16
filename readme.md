@@ -1,7 +1,7 @@
 # DH-Boilerplate
 
-A bare-bones (work-in-progress) Laravel 4 app setup for projects. This is not a completed app,
-just a skeleton with useful back- and front-end libraries, etc included.
+A bare-bones (work-in-progress) Laravel 4 app setup for Digital Humanities projects. This is not a completed app,
+just a skeleton with useful back- and front-end libraries, etc included. It won't do anything out-of-the-box.
 
 
 ##Requirements
@@ -34,8 +34,7 @@ Routes are also declared for
 ##Components
 	
 ###[DocsReader](https://github.com/daylerees/docs-reader)
-The documentation is handled by the integrated [DocsReader](https://github.com/daylerees/docs-reader) which produces documentation from
-Markdown files. You can find the files in `/docs`
+The documentation is handled by the integrated [DocsReader](https://github.com/daylerees/docs-reader) which produces documentation from Markdown files. You can find the markdown source in `/docs`. (`/docs/documentation.md` contains the left side navigation).
 
 ###[Guzzle](https://github.com/guzzle/guzzle) 
 A "PHP HTTP client & framework for building RESTful web service clients"
