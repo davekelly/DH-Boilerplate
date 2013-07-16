@@ -15,7 +15,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="{{ url('css/style.css') }}">
-        <script src="{{ url('js/bower_components/modernizr/modernizr.min.js') }}"></script>
+        <script src="{{ url('js/bower_components/modernizr/modernizr.js') }}"></script>
     </head>
     <body>
         <!--[if lte IE 7]>

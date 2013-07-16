@@ -1,12 +1,20 @@
 # DH-Boilerplate
 
-A bare-bones Laravel 4 app setup for projects.
+A bare-bones (work-in-progress) Laravel 4 app setup for projects. This is not a completed app,
+just a skeleton with useful back- and front-end libraries, etc included.
+
+
+##Requirements
+- Meet the [Laravel Requirements](http://laravel.com/docs/installation#server-requirements)
+- Have [Composer](http://getcomposer.org/) installed (for managing the PHP dependencies)
+- Have [Bower](http://bower.io/) installed (for managing the Javascript dependencies)
 
 ##Configuration:
 
 1. Run `composer install`
 2. Run `php artisan key:generate` to generate a new application key
-3. Fill in the details in `/app/config/author.php`
+3. Fill in the details in `/app/config/author.php` (and, optionally, the config files for `geo.php` and `europeana.php`)
+4. Visit `public/js` and run `bower install` to install the suggested Javascript packages (you need to have [Bower](http://bower.io/) installed)
 
 
 ##Routes
@@ -55,6 +63,7 @@ It includes a number of JavaScript libraries at `/public/js/bower_components/`. 
 - [Leaflet.js](https://github.com/Leaflet/Leaflet) `leaflet/dist/leaflet.js`
 - [Modernizr](https://github.com/Modernizr/Modernizr) `modernizr/modernizr.js` (there's a .min.js version, but that's created by
 CodeKit, and is not downloaded as part of the library)
+- Google Code Prettify
 
 
 
