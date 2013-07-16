@@ -94,6 +94,10 @@
       <nav id="footer-base-bottom" class="span12">
           <ul class="nav nav-pills">
             <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/about/team">Team</a></li>
+            <li><a href="/about/development">Development</a></li>
+            <li><a href="/about/contact">Contact</a></li>
             <li><a href="/docs">Documentation</a></li>
             <li><a href="/docs/api">API</a></li>
           </ul>

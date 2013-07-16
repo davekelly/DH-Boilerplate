@@ -26,6 +26,9 @@ Route::get('/about/team', function(){
 Route::get('/about/contact', function(){
 	return View::make('static.contact');
 });
+Route::get('/about/development', function(){
+	return View::make('static.development');
+});
 
 //--------------------------------------
 //	App routes
@@ -33,6 +36,8 @@ Route::get('/about/contact', function(){
 //
 // .... go here...
 //
+
+Route::get('/related', 'RelatedExampleController@getRelated');
 
 //--------------------------------------
 // Documentation

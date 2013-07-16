@@ -5,7 +5,7 @@
 	"require": {
 		"laravel/framework": "4.0.*",
 		"dflydev/markdown": "v1.0.2",
-		"solarium/solarium": "2.4.0",
+		"guzzle/guzzle": "~3.7",
 		"toin0u/geotools-laravel": "@stable"
 	},
 	"autoload": {
