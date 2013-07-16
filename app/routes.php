@@ -14,20 +14,29 @@
 //--------------------------------------
 // Static Pages
 //======================================
+// homepage...
 Route::get('/', function(){
 	return View::make('static.home');
 });
-Route::get('/about', function(){
-	return View::make('static.about');
-});
-Route::get('/about/team', function(){
-	return View::make('static.about');
-});
-Route::get('/about/contact', function(){
-	return View::make('static.contact');
-});
-Route::get('/about/development', function(){
-	return View::make('static.development');
+
+// group of pages under /about
+Route::group(array('prefix' => 'about'), function(){
+
+	Route::get('/', function(){
+		return View::make('static.about');
+	});
+
+	Route::get('team', function(){
+		return View::make('static.about');
+	});
+	
+	Route::get('contact', function(){
+		return View::make('static.contact');
+	});
+	
+	Route::get('development', function(){
+		return View::make('static.development');
+	});
 });
 
 //--------------------------------------
