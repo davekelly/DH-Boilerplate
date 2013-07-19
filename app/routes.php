@@ -48,6 +48,10 @@ Route::group(array('prefix' => 'about'), function(){
 
 Route::get('/related', 'RelatedExampleController@getRelated');
 
+// Catalogue
+Route::resource('catalogue', 'CatalogueController');
+
+
 //--------------------------------------
 // Documentation
 //======================================
