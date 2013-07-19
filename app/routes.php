@@ -46,7 +46,11 @@ Route::group(array('prefix' => 'about'), function(){
 // .... go here...
 //
 
+// sample Europeana search integration...
 Route::get('/related', 'RelatedExampleController@getRelated');
+
+
+
 
 //--------------------------------------
 // Documentation
@@ -63,6 +67,8 @@ Route::group(array('prefix' => 'api/v1'), function() {
  	// => GET /api/v1/something/show/{id}
     Route::resource('something', 'ApiController', array('only' => array('index', 'show')));
 });
+
+
 
 //--------------------------------------
 // 404 errors
