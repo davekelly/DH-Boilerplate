@@ -24,8 +24,8 @@ class CatalogueController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
-	}
+		return View::make('catalogue.form');	
+	}	
 
 	/**
 	 * Store a newly created resource in storage.
@@ -34,7 +34,19 @@ class CatalogueController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$catalogue 	= new Catalogue();
+		$newItem 	= $catalogue->addNew($catalogue);
+		
+
+		if( $newItem instanceof Catalogue){
+			return Redirect::to('/catalogue/' . $newItem->id . '/edit');
+		}
+		
+		// means $newItem is a Validator => has validation errors
+		return Redirect::to('/catalogue/create')
+						->withErrors( $newItem )
+						->withInput();
+			
 	}
 
 	/**
@@ -47,11 +59,12 @@ class CatalogueController extends \BaseController {
 	{
 		$catalogue = new Catalogue();
 		$id = (is_numeric($id) ? (int) $id : false ); 
-		$item = $catalogue->findOne( $id);
+		$item = $catalogue->findOne( $id );
 
 		return View::make('catalogue.single', array(
 			'item' => $item) 
-		);	}
+		);	
+	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -61,7 +74,15 @@ class CatalogueController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$catalogue = Catalogue::find($id);
+
+		return View::make('catalogue.form', array(
+			'item'	=> $catalogue,
+			'formData' => array(
+				'url' 			=> '/catalogue/' . $id,
+				)
+			) 
+		);		
 	}
 
 	/**
@@ -72,7 +93,14 @@ class CatalogueController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$catalogue 	= Catalogue::find($id);
+		$result 	= $catalogue->doUpdate($catalogue);
+		if( $result instanceof Validator){
+			return Redirect::to('/catalogue/'. $id . '/edit')
+							->withErrors($result)
+							->withInput();
+		}
+		return Redirect::to('/catalogue/' . $id . '/edit');
 	}
 
 	/**

@@ -16,11 +16,11 @@ class CreateCatalogueItemTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->text('description');
-			$table->text('location');
-			$table->string('image_url')->default('');
-			$table->string('thumb_url')->default('');
-			$table->decimal('geo_lon', 9, 6);
-			$table->decimal('geo_lat', 9, 6);
+			$table->string('location')->nullable();
+			$table->string('image_url')->default('')->nullable();
+			$table->string('thumb_url')->default('')->nullable();
+			$table->decimal('geo_lon', 9, 6)->default(null)->nullable();
+			$table->decimal('geo_lat', 9, 6)->default(null)->nullable();
 			$table->boolean('active')->default(false);
 			$table->timestamps();
 		});

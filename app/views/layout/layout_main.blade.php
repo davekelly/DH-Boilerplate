@@ -75,10 +75,16 @@
             @if(Session::has('flash_notice'))
                 <div class="span12">                    
                     <div class="alert alert-warning">>
-                        <a class="close" data-dismiss="alert">×</a> 
+                        <?php // <a class="close" data-dismiss="alert">×</a>  ?>
                         {{ Session::get('flash_notice') }}
                     </div>
                 </div>
+            @elseif(  count( $errors->all()) > 0 ) 
+              <div class="span12">
+                <div class="alert alert-error">>
+                    Your form has errors...
+                </div>
+              </div>
             @endif
             
             @yield('content')
