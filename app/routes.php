@@ -49,7 +49,8 @@ Route::group(array('prefix' => 'about'), function(){
 // sample Europeana search integration...
 Route::get('/related', 'RelatedExampleController@getRelated');
 
-
+// Catalogue
+Route::resource('catalogue', 'CatalogueController');
 
 
 //--------------------------------------

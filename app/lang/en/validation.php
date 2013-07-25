@@ -75,7 +75,14 @@ return array(
 	|
 	*/
 
-	'custom' => array(),
+	'custom' => array(
+		'geo_lat' => array(
+	        'numeric' => 'Latitude must be a numeric coordinate',
+	    ),
+	    'geo_lon' => array(
+	        'numeric' => 'Longitude must be a numeric coordinate',
+	    ),
+	),
 
 	/*
 	|--------------------------------------------------------------------------

@@ -1,0 +1,22 @@
+<?php
+
+class CatalogueTestDataSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('catalogue_item')->delete();
+
+        Catalogue::create(array(
+            'title' => 'Test title',
+            'description' => 'Some example content',
+            'location'  => 'Galway',
+            'image_url' => 'http://placehold.it/570x300',
+            'thumb_url' => 'http://placehold.it/75x75',
+            'geo_lon'   => 53.271944, 
+            'geo_lat'   => -9.048889,
+            'active' => 1
+            
+        ));
+
+    }
+}
