@@ -1,7 +1,9 @@
 # DH-Boilerplate
 
-A bare-bones (work-in-progress) Laravel 4 app setup for Digital Humanities projects. This is not a completed app,
-just a skeleton with useful back- and front-end libraries, etc included. It won't do anything out-of-the-box.
+A bare-bones (work-in-progress) [Laravel 4](http://laravel.com) app setup for Digital Humanities projects. This is not a completed app,
+just a skeleton with useful back- and front-end libraries, etc included. It won't do much out-of-the-box.
+
+Delete the stuff you don't need to use.
 
 
 ##Requirements
@@ -30,8 +32,35 @@ Routes are also declared for
 - `/docs` (see DocReader section below)
 - `/api/v1` - this route group is intended as a starting point for the app's API
 
+##Resources
 
-##Components
+There's a basic `catalogue` resource declared in `app/routes.php` as a starting point for building an item catalogue.
+
+Take a look at `app/controllers/CatalogueController.php` for its setup. View templates are in `app/views/catalogue`, with l10n options
+for labels, etc held in `app/lang/en/catalogue.php`. 
+
+To set it up, run the database migration provided (and optionally seed the database with a single test record). Alter the migration schema and update the Catalogue model at `app/models/Catalogue.php` to extend it.
+
+
+##Front-end related
+
+There is some [NUIG](http://nuigalway.ie) branding included (as this was created for NUIG projects) - you can delete that from the `app/views/layout/layout_main.blade.php` file if using for a non-NUIG project.
+
+####LESS
+The skeleton uses [LESS](http://lesscss.org) for stylesheets. You'll need to use a process them using something (CodeKit is 
+good).
+
+####JavaScript
+It includes a number of JavaScript libraries at `/public/js/bower_components/`. Versions can be set/updated running `bower install` on `/public/js/bower.json`
+- [d3](http://github.com/mbostock/d3) `d3/d3.min.js`
+- [jQuery](https://github.com/jquery/jquery) `jquery/jquery.min.js`
+- [Leaflet.js](https://github.com/Leaflet/Leaflet) `leaflet/dist/leaflet.js`
+- [Modernizr](https://github.com/Modernizr/Modernizr) `modernizr/modernizr.js` (there's a .min.js version, but that's created by
+CodeKit, and is not downloaded as part of the library)
+- Google Code Prettify
+
+
+##External Components
 	
 ###[DocsReader](https://github.com/daylerees/docs-reader)
 The documentation is handled by the integrated [DocsReader](https://github.com/daylerees/docs-reader) which produces documentation from Markdown files. You can find the markdown source in `/docs`. (`/docs/documentation.md` contains the left side navigation).
@@ -48,21 +77,6 @@ To enable GeoTools, you need to un-comment the GeoTools related lines in the `pr
 
 Some other optional integrations are included in the NOTES.md file.
 
-
-##Front-end related
-
-####LESS
-The skeleton uses [LESS](http://lesscss.org) for stylesheets. You'll need to use a process them using something (CodeKit is 
-good).
-
-####JavaScript
-It includes a number of JavaScript libraries at `/public/js/bower_components/`. Versions can be set/updated running `bower install` on `/public/js/bower.json`
-- [d3](http://github.com/mbostock/d3) `d3/d3.min.js`
-- [jQuery](https://github.com/jquery/jquery) `jquery/jquery.min.js`
-- [Leaflet.js](https://github.com/Leaflet/Leaflet) `leaflet/dist/leaflet.js`
-- [Modernizr](https://github.com/Modernizr/Modernizr) `modernizr/modernizr.js` (there's a .min.js version, but that's created by
-CodeKit, and is not downloaded as part of the library)
-- Google Code Prettify
 
 
 
