@@ -77,7 +77,7 @@ class CatalogueController extends \BaseController {
 		$catalogue = Catalogue::find($id);
 
 		return View::make('catalogue.form', array(
-			'item'	=> $catalogue,
+			'item'	=> $catalogue,						// bind object to form...
 			'formData' => array(
 				'url' 			=> '/catalogue/' . $id,
 				)

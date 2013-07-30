@@ -8,6 +8,9 @@
 		"guzzle/guzzle": "~3.7",
 		"toin0u/geotools-laravel": "@stable"
 	},
+	"require-dev": {
+        "mockery/mockery": "dev-master@dev"
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",
