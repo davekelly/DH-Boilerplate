@@ -73,10 +73,26 @@
         
         <div id="main">
             @if(Session::has('flash_notice'))
+              <?php
+                /*
+                  // flash_notice format:
+                  Session::flash('flash_notice', array(
+                    'type'      => 'success|info|error', 
+                    'message'   => $string
+                    )
+                  );
+                */
+               
+                $flash = Session::get('flash_notice'); 
+                if(!isset($flash['type'])){
+                  $flash['type'] = '';
+                }
+
+                ?>
                 <div class="span12">                    
-                    <div class="alert alert-warning">>
+                    <div class="alert alert-{{{ $flash['type'] }}}">>
                         <?php // <a class="close" data-dismiss="alert">×</a>  ?>
-                        {{ Session::get('flash_notice') }}
+                        {{{ $flash['message'] }}}
                     </div>
                 </div>
             @elseif(  count( $errors->all()) > 0 ) 

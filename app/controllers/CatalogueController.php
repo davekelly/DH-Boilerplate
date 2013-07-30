@@ -2,6 +2,12 @@
 
 class CatalogueController extends \BaseController {
 
+	public function __construct()
+	{
+		$this->beforeFilter('csrf', array('on' => 'post'));
+	}
+
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -39,6 +45,11 @@ class CatalogueController extends \BaseController {
 		
 
 		if( $newItem instanceof Catalogue){
+			Session::flash('flash_notice', array(
+					'type' => 'success', 
+					'message' => Lang::get('messages.catalogue_item_created')
+				)
+			);
 			return Redirect::to('/catalogue/' . $newItem->id . '/edit');
 		}
 		
@@ -100,6 +111,12 @@ class CatalogueController extends \BaseController {
 							->withErrors($result)
 							->withInput();
 		}
+
+		Session::flash('flash_notice', array(
+				'type' 		=> 'success', 
+				'message' 	=> Lang::get('messages.catalogue_item_saved')
+			)
+		);
 		return Redirect::to('/catalogue/' . $id . '/edit');
 	}
 
