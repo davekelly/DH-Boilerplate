@@ -36,8 +36,8 @@ Routes are also declared for
 
 There's a basic `catalogue` resource declared in `app/routes.php` as a starting point for building an item catalogue.
 
-Take a look at `app/controllers/CatalogueController.php` for its setup. View templates are in `app/views/catalogue`, with l10n options
-for labels, etc held in `app/lang/en/catalogue.php`. 
+Take a look at `app/controllers/CatalogueController.php` for its setup. View templates are in `app/views/catalogue`, with localisation options
+for headings, labels, etc held in `app/lang/en/catalogue.php` and `app/lang/en/messages.php`. 
 
 To set it up, run the database migration provided (and optionally seed the database with a single test record). Alter the migration schema and update the Catalogue model at `app/models/Catalogue.php` to extend it.
 
@@ -48,7 +48,7 @@ There is some [NUIG](http://nuigalway.ie) branding included (as this was created
 
 ####LESS
 The skeleton uses [LESS](http://lesscss.org) for stylesheets. You'll need to use a process them using something (CodeKit is 
-good).
+good). Parts of the styling are built on Twitter Bootstrap 2.3.*
 
 ####JavaScript
 It includes a number of JavaScript libraries at `/public/js/bower_components/`. Versions can be set/updated running `bower install` on `/public/js/bower.json`
@@ -75,7 +75,7 @@ To enable GeoTools, you need to un-comment the GeoTools related lines in the `pr
 `/app/config/app.php`. You can also use the `/app/config/geo.php` file for any geo related API keys, etc.
 
 
-Some other optional integrations are included in the NOTES.md file.
+Some other optional integrations are included in the [NOTES.md](NOTES.md) file.
 
 
 

@@ -8,7 +8,7 @@
 
 	<article>
 		<div class="row">
-			<header class="span12">
+			<header class="col-12">
 				<h1>
 					{{ Lang::get('catalogue.listing_title') }}
 				</h1>
@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="row">
-			<section class="span12">
+			<section class="col-12">
 				<?php if( isset($items) ): ?>
 					
 					<?php // output number of results ?>

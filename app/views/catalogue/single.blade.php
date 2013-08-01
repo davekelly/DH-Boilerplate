@@ -11,7 +11,7 @@
 	<article id="catalogue-item">
 		<?php if( isset($item) ): ?>
 			<div class="row">
-				<header class="span12">
+				<header class="col-12">
 					<h1>
 						{{{ $item->title }}}
 					</h1>
@@ -19,7 +19,7 @@
 			</div>
 
 			<div class="row">
-				<section class="span6">
+				<section class="col-12 col-sm-6 col-lg-6">
 				
 					<?php
 					// listing of item attributes
@@ -59,7 +59,7 @@
 					</table>
 				</section>
 
-				<aside class="span6">
+				<aside class="col-12 col-sm-6 col-lg-6">
 					<?php 
 					//
 					// related item info (image & map ) 
@@ -89,7 +89,7 @@
 
 			</div>
 		<?php else: ?>
-			<div class="alert alert-error span12">
+			<div class="alert alert-error">
 				<h4>{{ Lang::get('messages.error_heading') }}</h4>
 				<p>
 					{{ Lang::get('messages.empty_listing') }}

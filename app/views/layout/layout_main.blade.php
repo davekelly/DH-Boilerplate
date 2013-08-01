@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">        
 
+
     <script src="{{ url('js/bower_components/modernizr/modernizr.js') }}"></script>
 
     <script>
@@ -41,14 +42,14 @@
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">  
 
 <!--Start NUI Galway affiliate header-->
-<div id="nuigalway-header" class="row">
-  <header id="page-header" class="container">
-    <div id="nuigalway-logo" class="span3"> 
+<div id="nuigalway-header" class="container">
+  <header id="page-header" class="row">
+    <div id="nuigalway-logo" class="col-12 col-sm-6 col-lg-6"> 
       <a title="Go back to NUI Galway home" href="http://www.nuigalway.ie">
         <img src="http://www.nuigalway.ie/images/logo.png" width="176" height="50" alt="NUI Galway logo" />
       </a>
     </div>
-    <div id="search-bar" class="span3 offset6">
+    <div id="search-bar" class="col-12 col-sm-6 col-lg-4 col-offset-2">
       <form method="get" id="search" action="http://search.nuigalway.ie/search">
         <div id="search-form" class="search-form">
           <label for="keywords" class="hide-text search-label">Search Keywords</label>
@@ -65,11 +66,11 @@
 </div>
 
     
-<div class="page row">         
+<div class="page container">         
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">    
     
 
-    <div class="container" id="page-container">
+    <div id="page-container">
         
         <div id="main">
             @if(Session::has('flash_notice'))
@@ -89,14 +90,14 @@
                 }
 
                 ?>
-                <div class="span12">                    
+                <div class="col-12">                    
                     <div class="alert alert-{{{ $flash['type'] }}}">>
                         <?php // <a class="close" data-dismiss="alert">×</a>  ?>
                         {{{ $flash['message'] }}}
                     </div>
                 </div>
             @elseif(  count( $errors->all()) > 0 ) 
-              <div class="span12">
+              <div class="col-12">
                 <div class="alert alert-error">>
                     Your form has errors...
                 </div>
@@ -113,7 +114,7 @@
 <footer id="page-footer" class="row" role="contentinfo">
   <div class="container">
     
-      <nav id="footer-base-bottom" class="span12">
+      <nav id="footer-base-bottom" class="col-12">
           <ul class="nav nav-pills">
             <li><a href="/">Home</a></li>
             <li><a href="/about/">About</a></li>
@@ -126,7 +127,7 @@
       </nav>
     
 
-      <ul id="sponsors" class="span12">
+      <ul id="sponsors" class="col-12">
           <li>
               <a href="http://nuigalway.ie" rel='external'>
                   <img src="/img/logo-nuig.png" alt="NUI Galway" />

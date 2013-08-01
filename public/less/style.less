@@ -4,32 +4,35 @@
  *
  */
 
-// General & opinionated resets (h5bp)
-@import 'components/reset.less'; 
-@import "components/elements.less";
 
-// Bootstrap files
-@import 'components/layouts.less';
-@import 'components/grid.less';
-@import 'components/responsive.less';
-@import 'components/tables.less';
-@import 'components/forms.less';
-@import 'components/alerts.less';
-@import 'components/buttons.less';
+// Core variables and mixins: ;
+@import "components/variables.less";	// bootstrap
+@import "components/mixins.less";		// bootstrap
+
+// Reset
+@import 'components/reset.less';  // General & opinionated resets (h5bp)
+@import "components/elements.less";
+// @import "components/normalize.less";
+@import "components/print.less";  // bootstrap
+
+// Core CSS
+@import "components/scaffolding.less";	// bootstrap
+@import "components/type.less";			// bootstrap
+@import "components/code.less";			// bootstrap
+@import "components/grid.less";			// bootstrap
+
+@import "components/tables.less";		// bootstrap
+@import "components/forms.less";		// bootstrap
+@import "components/buttons.less";		// bootstrap
+@import "components/input-groups.less"; // bootstrap
 
 
 // Project specific 
-@import 'project.less';
-@import 'vendor/doc-layout.less';		// documentation styling
+@import 'project.less'; 
+// @import 'vendor/doc-layout.less';		// documentation styling
 
 // General utility classes (h5bp)
 @import 'components/utility.less';
 
 // IE related fixes
 @import 'components/ie-fixes.less';
-// print specfic (h5bp)
-@import 'components/print.less';
-
-
-
-
