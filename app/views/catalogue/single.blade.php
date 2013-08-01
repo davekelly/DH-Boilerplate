@@ -89,7 +89,7 @@
 
 			</div>
 		<?php else: ?>
-			<div class="alert alert-error">
+			<div class="alert alert-danger">
 				<h4>{{ Lang::get('messages.error_heading') }}</h4>
 				<p>
 					{{ Lang::get('messages.empty_listing') }}

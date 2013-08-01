@@ -42,8 +42,8 @@
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">  
 
 <!--Start NUI Galway affiliate header-->
-<div id="nuigalway-header" class="container">
-  <header id="page-header" class="row">
+<header id="page-header" class="row">
+  <div id="nuigalway-header" class="container">
     <div id="nuigalway-logo" class="col-12 col-sm-6 col-lg-6"> 
       <a title="Go back to NUI Galway home" href="http://www.nuigalway.ie">
         <img src="http://www.nuigalway.ie/images/logo.png" width="176" height="50" alt="NUI Galway logo" />
@@ -62,15 +62,15 @@
         </div>
       </form>
     </div>
-  </header>
-</div>
+  </div>
+</header>
 
     
-<div class="page container">         
+<div class="page row">         
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">    
     
 
-    <div id="page-container">
+    <div id="page-container" class="container">
         
         <div id="main">
             @if(Session::has('flash_notice'))
@@ -78,7 +78,7 @@
                 /*
                   // flash_notice format:
                   Session::flash('flash_notice', array(
-                    'type'      => 'success|info|error', 
+                    'type'      => 'success|info|danger', 
                     'message'   => $string
                     )
                   );
@@ -98,7 +98,7 @@
                 </div>
             @elseif(  count( $errors->all()) > 0 ) 
               <div class="col-12">
-                <div class="alert alert-error">>
+                <div class="alert alert-danger">>
                     Your form has errors...
                 </div>
               </div>
