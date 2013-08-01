@@ -47,7 +47,7 @@ To set it up, run the database migration provided (and optionally seed the datab
 There is some [NUIG](http://nuigalway.ie) branding included (as this was created for NUIG projects) - you can delete that from the `app/views/layout/layout_main.blade.php` file if using for a non-NUIG project.
 
 ####LESS
-The skeleton uses [LESS](http://lesscss.org) for stylesheets. You'll need to use a process them using something ([CodeKit](http://incident57.com/codekit/) and [Prepos](http://alphapixels.com/prepros/) are worth a look). Large parts of the styling are built on Twitter Bootstrap 3.0.*
+The skeleton uses [LESS](http://lesscss.org) for stylesheets. You'll need to use a pre-processor on them to generate the CSS - ([CodeKit](http://incident57.com/codekit/) and [Prepos](http://alphapixels.com/prepros/) are worth a look). Large parts of the styling are built on Twitter Bootstrap 3.0.*
 
 ####JavaScript
 It includes a number of JavaScript libraries at `/public/js/bower_components/`. Versions can be set/updated running `bower install` on `/public/js/bower.json`
