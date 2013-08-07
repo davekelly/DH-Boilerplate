@@ -11,11 +11,11 @@
 
     <meta name="author" content="NUI Galway" />
     <meta name="copyright" content="Copyright NUI Galway" />
-    <meta name="description" content="" />
+    <meta name="description" content="<?php echo (isset($pageTitle) ? $pageTitle : ''); ?>" />
 
     <link rel="schema.DC" href="http://purl.org/DC/elements/1.1/" title="Dublin Core Metadata Element Set, Version 1.1" />
-    
     <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" title="DCMI Elements and DCMI Qualifiers" />
+    
     <meta name="DC.title" lang="en" content="{{ Config::get('author.project_title', 'NUI Galway Project') }} "/>
     <meta name="DC.creator" content="{{ Config::get('author.primary_author_name', 'NUI Galway') }}" />
     <meta name="DC.publisher" content="NUI Galway" />

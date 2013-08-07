@@ -15,8 +15,9 @@ Delete the stuff you don't need to use.
 
 1. Run `composer install`
 2. Run `php artisan key:generate` to generate a new application key
-3. Fill in the details in `/app/config/author.php` (and, optionally, the config files for `geo.php` and `europeana.php`)
-4. Visit `public/js` and run `bower install` to install the suggested Javascript packages (you need to have [Bower](http://bower.io/) installed)
+3. If using User Accounts, run `php artisan auth:reminders` and `php artisan migrate`
+4. Fill in the details in `/app/config/author.php` (and, optionally, the config files for `geo.php` and `europeana.php`)
+5. Visit `public/js` and run `bower install` to install the suggested Javascript packages (you need to have [Bower](http://bower.io/) installed)
 
 
 ##Routes

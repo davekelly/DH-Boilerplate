@@ -7,6 +7,6 @@ return array(
 	 * various places throughout the application
 	 */
 	'primary_author_name' 	=> 'None Given',
-	'primary_author_email' 	=> 'david.d.kelly@nuigalway.ie',
+	'primary_author_email' 	=> 'replace-me@nuigalway.ie',
 	'project_title'			=> 'NUI Galway Research Project'
 );
