@@ -18,5 +18,17 @@ class CatalogueTestDataSeeder extends Seeder {
             
         ));
 
+        Catalogue::create(array(
+            'title' => 'A second test title',
+            'description' => 'Some more example content',
+            'location'  => 'Galway',
+            'image_url' => 'http://placehold.it/570x300',
+            'thumb_url' => 'http://placehold.it/75x75',
+            'geo_lon'   => 53.271944, 
+            'geo_lat'   => -9.048889,
+            'active' => 1
+            
+        ));
+
     }
 }

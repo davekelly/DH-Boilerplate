@@ -75,7 +75,7 @@
 
 					<?php 
 					// check for lat & long
-					if(  ($item->geo_lat !== '0.000000') && (  $item->geo_long !== '0.000000')): ?>
+					if(  ($item->geo_lat !== '0.000000') && (  $item->geo_lon !== '0.000000')): ?>
 						<div id="map">
 							<h3>
 								{{ Lang::get('catalogue.heading_map') }}

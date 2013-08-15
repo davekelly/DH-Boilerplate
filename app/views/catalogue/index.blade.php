@@ -27,7 +27,7 @@
 							</strong>
 						</p>
 
-						<table class="table">
+						<table class="table" id="catalogue-table">
 							<thead>
 								<tr>	
 									<?php

@@ -38,12 +38,8 @@ class CatalogueApiController extends \BaseController {
 					);
 				break;
 			default: 
-				return \Response::json(array(
-						'error'		=> false,
-						'items'		=> $items->toJson()
-					)
-				);
-				break;
+				return \Response::json( $items );
+				
 		}
 
 	}
@@ -59,8 +55,7 @@ class CatalogueApiController extends \BaseController {
 	 */
 	public function show( $id, $format = null)
 	{
-		$catalogue = new Catalogue();
-		$id = (is_numeric($id) ? (int) $id : false ); 
+		$catalogue = new Catalogue();	
 		$item = $catalogue->findOne( $id );
 
 		switch($format){
@@ -76,11 +71,7 @@ class CatalogueApiController extends \BaseController {
 					);
 				break;
 			default: 
-				return \Response::json(array(
-						'error'		=> false,
-						'item'		=> $item->toJson()
-					)
-				);
+				return \Response::json($item);
 				break;
 		}
 	}

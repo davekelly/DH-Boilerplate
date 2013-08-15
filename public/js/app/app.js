@@ -2,8 +2,7 @@
  * Backbone application
  */
 
-// Sample application code using the pre-set /catalogue
-// api 
+// app code can go here...
 
 var Catalogue = Backbone.Model.extend({
 	initialize: function(){
@@ -23,33 +22,7 @@ var Catalogue = Backbone.Model.extend({
   		location: '',
   		image_url: '',
   		geo_lat: '',
-  		geo_long: ''
+  		geo_lon: ''
   	},
 
-});
-
-var iCatalogue = new Catalogue({ id: 7});
-
-var fetchSuccess = function() {
-	console.log(iCatalogue.get('title'));
-};
-
-// 
-
-var SingleCatalogueView = Backbone.View.extend({
-	tagName:  'article',
-
-	el: '#catalogue-holder',
-
-	template: _.template('#catalogue-item'),
-
-	render: function() {
-	    this.$el.html(this.template(this.model.attributes));
-	    return this;
-	}
-});
-
-var ListCatalogueView = Backbone.View.extend({
-	tagName: 'article',
-	el: '#catalogue-list'
 });
