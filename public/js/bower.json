@@ -2,11 +2,13 @@
   "name": "dh-boilerplate",
   "version": "0.0.1",
   "dependencies": {
-    "d3": "~3.2.5",
-    "jquery": "~1.10.2",
-    "leaflet": "~0.6.2",
-    "modernizr": "~2.6.2",
-    "google-code-prettify": "~1.0.0"
+    "d3": "latest",
+    "leaflet": "latest",
+    "modernizr": "latest",
+    "google-code-prettify": "latest",
+    "jquery": "latest",
+    "backbone": "latest",
+    "underscore": "latest"
   },
   "ignore": [
     "**/.*",

@@ -155,22 +155,31 @@
 
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script>window.jQuery && document.write(unescape('<script src="/js/bower_components/jquery.min.js"><\/script>'))</script>
+  <script>window.jQuery && document.write(unescape('<script src="/js/bower_components/jquery/jquery.min.js"><\/script>'))</script>
 
   
   <?php // <script src="/js/bower_components/d3.min.js"></script> ?>
   <?php // <script src="/js/bower_components/leaflet/dist/leaflet.js"></script> ?>
+  
+  <script src="/js/bower_components/requirejs/require.js"></script>
+  <script src="/js/bower_components/underscore/underscore-min.js"></script>
+  <script src="/js/bower_components/backbone/backbone-min.js"></script>
 
   <script src="/js/plugins.js?v=1"></script>
   <script src="/js/main.js?v=1"></script>  
+
+  <?php // backbone sample app ?>
+  <script src="/js/app/app.js"></script>
   
-  <?php // can use this in production:
+  <?php // Compile the javascript files for use in production, e.g.
+  // <script src="/js/plugins.min.js?v=1"></script>
   // <script src="/js/main.min.js?v=1"></script>
   ?>
 
   
 
-  
+  <?php
+  /* Remove if using Google Analytics (and add tracker code if needed...)
 
   <script>
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -190,6 +199,8 @@
         pageTracker._trackPageview();
         } catch(err) {}
 </script>
+
+*/ ?>
 </body>
 </html>
 
