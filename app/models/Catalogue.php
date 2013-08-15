@@ -14,6 +14,11 @@ class Catalogue extends \Eloquent{
 	 */
 	protected $fillable = array('title', 'description', 'location', 'image_url', 'thumb_url', 'active', 'geo_lon', 'geo_lat');
 
+	/**
+	 * Properties to hide in JSON output
+	 * @var Mixed
+	 */
+	protected $hidden = array('updated_at', 'created_at') ;
 
 	/**
 	 * Return all items
