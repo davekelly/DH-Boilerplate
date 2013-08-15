@@ -1,7 +1,7 @@
 <?php
 
 namespace Apiv1;
-use \Catalogue;
+use Catalogue;
 
 class CatalogueApiController extends \BaseController {
 
@@ -22,7 +22,7 @@ class CatalogueApiController extends \BaseController {
 
 	public function listItems($format = null)
 	{
-		$catalogue = new Catalogue\Catalogue();
+		$catalogue = new Catalogue();
 		$items = $catalogue->getAll();
 
 		switch($format){
@@ -59,7 +59,7 @@ class CatalogueApiController extends \BaseController {
 	 */
 	public function show( $id, $format = null)
 	{
-		$catalogue = new Catalogue\Catalogue();
+		$catalogue = new Catalogue();
 		$id = (is_numeric($id) ? (int) $id : false ); 
 		$item = $catalogue->findOne( $id );
 

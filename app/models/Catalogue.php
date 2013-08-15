@@ -1,5 +1,4 @@
 <?php
-namespace Catalogue;
 
 class Catalogue extends \Eloquent{
 
