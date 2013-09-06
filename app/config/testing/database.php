@@ -49,7 +49,7 @@ return array(
 		'sqlite' => array(
 			'driver'   => 'sqlite',
 			// 'database' => __DIR__.'/../database/production.sqlite',
-			'database' => 'memory:',
+			'database' => ':memory:',
 			'prefix'   => '',
 		),
 

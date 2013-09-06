@@ -6,11 +6,7 @@
 
 var Catalogue = Backbone.Model.extend({
 	initialize: function(){
-    	console.log('This model has been initialized.');
-
-    	this.on('change', function(){
-	        console.log('- Values for this model have changed.');
-	    });
+    	
   	},
 
   	urlRoot: '/api/v1/catalogue',
@@ -26,3 +22,55 @@ var Catalogue = Backbone.Model.extend({
   	},
 
 });
+
+
+
+var catalogueCollection = Backbone.Collection.extend({
+	model: Catalogue,
+	url : '/api/v1/catalogue'
+});
+
+
+var modelSuccess = function(model, response, options){
+	// console.log(model.toJSON());
+}
+
+var iCatalogue = new Catalogue({ id: 1});
+// iCatalogue.fetch({success: modelSuccess});
+
+var fetchSuccess = function(c) {
+	
+	// console.log( c.toJSON());
+	
+};
+
+var coll = new catalogueCollection();
+// coll.fetch({success: fetchSuccess});
+
+
+
+// 
+//
+
+var SingleCatalogueView = Backbone.View.extend({
+	tagName:  'article',
+
+	el: '#catalogue-holder',
+
+	template: _.template('#catalogue-item'),
+
+	render: function() {
+	    this.$el.html(this.template(this.model.attributes));
+	    return this;
+	}
+}); 
+
+// var single = new SingleCatalogueView();
+
+
+
+var TableCatalogueView = Backbone.View.extend({
+	model: Catalogue,
+	el: '#catalogue-table'
+});
+

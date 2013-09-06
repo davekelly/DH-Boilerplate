@@ -51,8 +51,10 @@ Route::group(array('prefix' => 'about'), function(){
 Route::get('/related', 'RelatedExampleController@getRelated');
 
 // Catalogue
-// ...delete if un-needed...
+// ...delete if not needed...
 Route::resource('catalogue', 'CatalogueController');
+
+
 
 
 //--------------------------------------
@@ -70,13 +72,11 @@ Route::group(array('prefix' => 'api/v1'), function() {
  	// => GET /api/v1/something/show/{id}
  	
  	Route::group(array('prefix' => 'catalogue'), function(){
- 		// /api/v1/catalogue/list
- 		Route::get('list/{format?}', 'Apiv1\CatalogueApiController@listItems')
- 					->where('format', '[A-Za-z]+');
+ 		// /api/v1/catalogue
+ 		Route::get('/', 'Apiv1\CatalogueApiController@index');
  					
- 		Route::get('/{id}/{format?}', 'Apiv1\CatalogueApiController@show')
+ 		Route::get('/{id}', 'Apiv1\CatalogueApiController@show')
  					->where(array(
- 						'format' => '[A-Za-z]+', 
  						'id' => '[0-9]+'
  						) 
  					);

@@ -3,6 +3,13 @@
 namespace Apiv1;
 use Catalogue;
 
+/**
+ * @todo  Add EDF format output => not currently
+ *        outputing any content in them...
+ *        See show action for example (also needs to
+ *        be added back into routes)
+ */
+
 class CatalogueApiController extends \BaseController {
 
 	/**
@@ -12,38 +19,12 @@ class CatalogueApiController extends \BaseController {
 	 */
 	public function index()
 	{
-		return Response::json(array(
-            'error' => true,
-            'message' => 'Resource not found'),
-            404
-        );
-	}
-
-
-	public function listItems($format = null)
-	{
 		$catalogue = new Catalogue();
-		$items = $catalogue->getAll();
+		$items = $catalogue->getAll();		
 
-		switch($format){
-
-			case 'edf': 
-				return \Response::make(
-						\View::make(
-							'catalogue.edf.index_edf', 
-							array('items' => $items)
-						), 
-						200, 
-						array('Content-Type' => 'application/xml')
-					);
-				break;
-			default: 
-				return \Response::json( $items );
+		return \Response::json( $items );
 				
-		}
-
 	}
-
 
 
 

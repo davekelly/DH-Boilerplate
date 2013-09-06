@@ -156,14 +156,28 @@
 				</div>
 
 		</article>
-  </script>
+  	</script>
 
-  <script type="text/template" id="empty-listing-alert">
-  	<div class="alert alert-danger">
-		<h4>{{ Lang::get('messages.error_heading') }}</h4>
-		<p>
-			{{ Lang::get('messages.empty_listing') }}
-		</p>
-	</div>
-  </script>
+	  <script type="text/template" id="empty-listing-alert">
+	  	<div class="alert alert-danger">
+			<h4>{{ Lang::get('messages.error_heading') }}</h4>
+			<p>
+				{{ Lang::get('messages.empty_listing') }}
+			</p>
+		</div>
+	  </script>
+
+	 <script type="text/template" id="catalogue-table-row">
+	 	<tr>
+			<td>
+				<a href="/catalogue/<%= id %>" title="<?%= title %>" />
+			</td>
+			<td>
+				<%= location %>
+			</td>
+			<td>
+				etc...
+			</td>
+		</tr>
+	 </script>
 @stop

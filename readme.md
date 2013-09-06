@@ -58,6 +58,8 @@ It includes a number of JavaScript libraries at `/public/js/bower_components/`. 
 - [Modernizr](https://github.com/Modernizr/Modernizr) `modernizr/modernizr.js` (there's a .min.js version, but that's created by
 CodeKit, and is not downloaded as part of the library)
 - Google Code Prettify
+- Backbone.js
+- Underscore.js
 
 
 ##External Components
