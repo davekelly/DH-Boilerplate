@@ -61,6 +61,8 @@ CodeKit, and is not downloaded as part of the library)
 - Backbone.js
 - Underscore.js
 
+#### Grunt
+To use [Grunt](http://gruntjs.org), update `/public/package.json` and `/public/Gruntfile.js` as required, and run `npm install` in `/public`.
 
 ##External Components
 	
