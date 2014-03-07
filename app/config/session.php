@@ -2,6 +2,9 @@
 
 return array(
 
+	'expire_on_close' => false,
+
+	
 	/*
 	|--------------------------------------------------------------------------
 	| Default Session Driver

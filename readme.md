@@ -9,7 +9,7 @@ Delete the stuff you don't need to use.
 ##Requirements
 - Meet the [Laravel Requirements](http://laravel.com/docs/installation#server-requirements)
 - Have [Composer](http://getcomposer.org/) installed (for managing the PHP dependencies)
-- Have [Bower](http://bower.io/) installed (for managing the Javascript dependencies)
+- Have [Bower](http://bower.io/) installed (for managing the front-end dependencies)
 
 ##Configuration:
 
@@ -17,7 +17,7 @@ Delete the stuff you don't need to use.
 2. Run `php artisan key:generate` to generate a new application key
 3. If using User Accounts, run `php artisan auth:reminders` and `php artisan migrate`
 4. Fill in the details in `/app/config/author.php` (and, optionally, the config files for `geo.php` and `europeana.php`)
-5. Visit `public/js` and run `bower install` to install the suggested Javascript packages (you need to have [Bower](http://bower.io/) installed)
+5. Visit `/public` and run `bower install` to install the suggested Javascript packages (you need to have [Bower](http://bower.io/) installed)
 
 
 ##Routes
@@ -51,7 +51,7 @@ There is some [NUIG](http://nuigalway.ie) branding included (as this was created
 The skeleton uses [LESS](http://lesscss.org) for stylesheets. You'll need to use a pre-processor on them to generate the CSS - ([CodeKit](http://incident57.com/codekit/) and [Prepos](http://alphapixels.com/prepros/) are worth a look). Large parts of the styling are built on Twitter Bootstrap 3.0.*
 
 ####JavaScript
-It includes a number of JavaScript libraries at `/public/js/bower_components/`. Versions can be set/updated running `bower install` on `/public/js/bower.json`
+It includes a number of JavaScript libraries at `/public/js/bower_components/`. Versions can be set/updated running `bower install` on `/public/bower.json`
 - [d3](http://github.com/mbostock/d3) `d3/d3.min.js`
 - [jQuery](https://github.com/jquery/jquery) `jquery/jquery.min.js`
 - [Leaflet.js](https://github.com/Leaflet/Leaflet) `leaflet/dist/leaflet.js`

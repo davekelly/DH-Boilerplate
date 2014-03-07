@@ -31,7 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">        
 
 
-    <script src="{{ url('js/bower_components/modernizr/modernizr.js') }}"></script>
+    <script src="{{ url('bower_components/modernizr/modernizr.js') }}"></script>
 
     <script>
       var aa = {} || aa;
@@ -155,15 +155,15 @@
 
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script>window.jQuery && document.write(unescape('<script src="/js/bower_components/jquery/jquery.min.js"><\/script>'))</script>
+  <script>window.jQuery && document.write(unescape('<script src="/bower_components/jquery/jquery.min.js"><\/script>'))</script>
 
   
-  <?php // <script src="/js/bower_components/d3.min.js"></script> ?>
-  <?php // <script src="/js/bower_components/leaflet/dist/leaflet.js"></script> ?>
+  <?php // <script src="/bower_components/d3.min.js"></script> ?>
+  <?php // <script src="/bower_components/leaflet/dist/leaflet.js"></script> ?>
   
-  <script src="/js/bower_components/requirejs/require.js"></script>
-  <script src="/js/bower_components/underscore/underscore-min.js"></script>
-  <script src="/js/bower_components/backbone/backbone-min.js"></script>
+  <script src="/bower_components/requirejs/require.js"></script>
+  <script src="/bower_components/underscore/underscore-min.js"></script>
+  <script src="/bower_components/backbone/backbone-min.js"></script>
 
   <script src="/js/plugins.js?v=1"></script>
   <script src="/js/main.js?v=1"></script>  
