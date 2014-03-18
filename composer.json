@@ -5,7 +5,7 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"dflydev/markdown": "v1.0.2",
-		"guzzle/guzzle": "~3.*",
+		"guzzle/guzzle": "4.0.*",
 		"toin0u/geotools-laravel": "@stable"
 	},
 	"require-dev": {
