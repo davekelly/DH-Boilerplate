@@ -43,7 +43,7 @@
 							<?php foreach($items as $item): ?>
 								<tr>
 									<td>
-										{{ HTML::link('/catalogue/' . $item->id , $title = $item->title) }}
+										{{ link_to('/catalogue/' . $item->id , $title = $item->title) }}
 									</td>
 									<td>
 										{{{ $item->location }}}
