@@ -5,7 +5,7 @@ class CatalogueController extends \BaseController {
 	public function __construct()
 	{
 		$this->beforeFilter('csrf', array('on' => 'post'));
-       	$this->beforeFilter('auth', array('except' => array('index', 'show')));
+       	$this->beforeFilter('auth', array('except' => array('index', 'show', 'search')));
 	}
 
 
@@ -20,9 +20,48 @@ class CatalogueController extends \BaseController {
 		$items = $catalogue->getAll();
 
 		return View::make('catalogue.index', array(
-			'items' => $items) 
+			'items' => $items
+			) 
 		);
 	}
+
+	/**
+	 * Simple search across selected Catalogue
+	 * fields
+	 * 
+	 * @return \View
+	 */
+	public function search()
+	{
+		$results = null;
+
+		$searchTerm = Input::get('term');
+
+		if($searchTerm){
+			$catalogue = new Catalogue();
+			$results = $catalogue->simpleSearch($searchTerm);
+		}
+
+		return View::make('catalogue.search', array(
+			'items' 		=> $results, 
+			'searchTerm'	=> $searchTerm
+			) 
+		);
+	}
+
+	/**
+	 * Import the spreadsheet to the database
+	 * @return void
+	 */
+	public function importCsv()
+	{
+		$catalogue = new Catalogue();
+		$numberImported = $catalogue->importCsv('CLA_Contents.csv');		// in /app/data
+
+		var_dump($numberImported);
+
+	}
+
 
 	/**
 	 * Show the form for creating a new resource.

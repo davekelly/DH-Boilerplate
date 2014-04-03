@@ -52,6 +52,8 @@ Route::get('/related', 'RelatedExampleController@getRelated');
 
 // Catalogue
 // ...delete if not needed...
+Route::get('/catalogue/search', 'CatalogueController@search');
+Route::get('/catalogue/import', 'CatalogueController@importCsv');
 Route::resource('catalogue', 'CatalogueController');
 
 

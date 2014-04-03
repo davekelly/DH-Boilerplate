@@ -4,7 +4,8 @@ return array(
 
 	'listing_title'			=> 'The Catalogue Title Listing',
 	'listing_count'			=> 'item found|items found',
-
+	'search_title'			=> 'Search Results for',
+	
 	'heading_map'			=> 'Location',
 
 	// Data item labels

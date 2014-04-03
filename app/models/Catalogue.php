@@ -14,6 +14,14 @@ class Catalogue extends \Eloquent{
 	 */
 	protected $fillable = array('title', 'description', 'location', 'image_url', 'thumb_url', 'active', 'geo_lon', 'geo_lat');
 
+
+	/**
+	 * fields from $this->fillable to exclude from simple search
+	 * @var array
+	 */
+	protected $excludeFromSimpleSearch = array('image_url', 'thumb_url', 'active', 'geo_lat', 'geo_lon');
+
+
 	/**
 	 * Properties to hide in JSON output
 	 * @var Mixed
@@ -57,6 +65,36 @@ class Catalogue extends \Eloquent{
 
 		return $validator;
 	}
+
+
+	/**
+	 * Simple search that looks across the fields in $this->fillable. Fields
+	 * can be excluded by adding to $this->excludeFromSimpleSearch
+	 * 
+	 * @param  string $term search term
+	 * @return \Eloquent\Colection
+	 */
+	public function simpleSearch($term)
+	{
+		$query = $this->select();
+		$isFirst = true;			// flag for first element in $this->fillable
+
+		foreach($this->fillable as $searchField){
+
+			if(!in_array($searchField, $this->excludeFromSimpleSearch)){
+				if($isFirst){
+					$query->where($searchField,  'like', '%'. $term . '%');
+					$isFirst = false;
+				}else{
+					$query->orWhere($searchField,  'like', '%'. $term . '%');
+				}
+			}
+		}
+
+		return $query->get();
+		
+	}
+
 
 
 	/**
@@ -119,5 +157,47 @@ class Catalogue extends \Eloquent{
 			'thumb_url'		=> 'url|max:255',
 			'active'		=> 'numeric|max:1'
 		);
+	}
+
+	/**
+	 * Import a csv file (stored at /app/data). 
+	 * 
+	 * @todo  Requires some configuration to match $this->fillable 
+	 *        fields with CSV column structure
+	 * 
+	 * @param  string $fileName - name of file to import
+	 * @return string - printable msg with num of rows imported
+	 */
+	public function importCsv($fileName)
+	{
+		$row = 1;
+		
+		$path = dirname(__FILE__);
+	 	$file = $path . '/../data/' . $fileName;
+
+		$in = fopen($file, 'r');
+
+		// Order of the columns in the CSV:
+		// Script,Date,CLA,Shelfmark,Provenance,Name,Notes
+		
+		while (($data = fgetcsv($in, 10000, ',')) !== false) {	
+
+			$d = array(
+				'script' 		=> trim($data[0]), 
+				'date' 			=> trim($data[1]), 
+				'cla' 			=> trim($data[2]), 
+				'shelfmark' 	=> trim($data[3]), 
+				'provenance' 	=> trim($data[4]), 
+				'name' 			=> trim($data[5]), 
+				'notes' 		=> trim($data[6])
+			);
+
+			Catalogue::create($d);				
+
+		   	$row++;
+		}
+		fclose($in);
+
+		return "Imported $row rows";
 	}
 }

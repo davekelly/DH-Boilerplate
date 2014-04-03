@@ -42,35 +42,27 @@
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">  
 
 <!--Start NUI Galway affiliate header-->
-<header id="page-header" class="row">
-  <div id="nuigalway-header" class="container">
+<header id="page-header" class="container">
+  <div id="nuigalway-header" class="row">
     <div id="nuigalway-logo" class="col-12 col-sm-6 col-lg-6"> 
       <a title="Go back to NUI Galway home" href="http://www.nuigalway.ie">
         <img src="http://www.nuigalway.ie/images/logo.png" width="176" height="50" alt="NUI Galway logo" />
       </a>
     </div>
     <div id="search-bar" class="col-12 col-sm-6 col-lg-4 col-offset-2">
-      <form method="get" id="search" action="http://search.nuigalway.ie/search">
-        <div id="search-form" class="search-form">
-          <label for="keywords" class="hide-text search-label">Search Keywords</label>
-          <input name="q" id="keywords" type="text" size="15" value="Search NUI Galway" />
-          <input name="site" value="nuig_all" type="hidden" />
-          <input name="client" value="nuig_frontend" type="hidden" />
-          <input name="output" value="xml_no_dtd" type="hidden" />
-          <input name="proxystylesheet" value="nuig_frontend" type="hidden" />
-          <input type="image" value="submit" id="search-button" alt="Search this site" src="http://www.nuigalway.ie/images/search-button.png" />
+        <div class="pull-right">
+          @include('catalogue.partial.search_form')
         </div>
-      </form>
     </div>
   </div>
 </header>
 
     
-<div class="page row">         
+<div class="page container">         
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">    
     
 
-    <div id="page-container" class="container">
+    <div id="page-container">
         
         <div id="main">
             @if(Session::has('flash_notice'))
@@ -111,8 +103,8 @@
 
 </div>
 
-<footer id="page-footer" class="row" role="contentinfo">
-  <div class="container">
+<footer id="page-footer" class="container" role="contentinfo">
+  <div class="row">
     
       <nav id="footer-base-bottom" class="col-12">
           <ul class="nav nav-pills">

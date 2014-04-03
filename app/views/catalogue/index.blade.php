@@ -27,35 +27,8 @@
 							</strong>
 						</p>
 
-						<table class="table" id="catalogue-table">
-							<thead>
-								<tr>	
-									<?php
-										/**
-										 * @todo Add these to the language file...
-										 */
-									?>
-									<th>Title</th>
-									<th>Location</th>
-									<th>Etc...</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php foreach($items as $item): ?>
-									<tr>
-										<td>
-											{{ link_to('/catalogue/' . $item->id , $title = $item->title) }}
-										</td>
-										<td>
-											{{{ $item->location }}}
-										</td>
-										<td>
-											etc...
-										</td>
-									</tr>
-								<?php endforeach; ?>
-							</tbody>
-						</table>
+						@include('catalogue.partial.listing_table')
+						
 					<?php else: ?>
 						<div class="alert alert-danger">
 							<h4>{{ Lang::get('messages.error_heading') }}</h4>
