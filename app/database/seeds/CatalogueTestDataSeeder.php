@@ -30,5 +30,14 @@ class CatalogueTestDataSeeder extends Seeder {
             
         ));
 
+        // ...or you could do a CSV Import to seed the db
+        // 
+        // You'll need to configure the importCsv function 
+        // in models/Catalogue to use this...
+        // ----------------------------------------------
+        // $catalogue = new Catalogue();
+        // $catalogue->importCsv('my_csv_catalogue.csv');      // in /app/data
+
+
     }
 }

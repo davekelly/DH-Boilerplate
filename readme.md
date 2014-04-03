@@ -10,6 +10,7 @@ Delete the stuff you don't need to use.
 - Meet the [Laravel Requirements](http://laravel.com/docs/installation#server-requirements)
 - Have [Composer](http://getcomposer.org/) installed (for managing the PHP dependencies)
 - Have [Bower](http://bower.io/) installed (for managing the front-end dependencies)
+- Install [Grunt](http://gruntjs.org/) for managing the front-end build process
 
 ##Configuration:
 
@@ -37,10 +38,11 @@ Routes are also declared for
 
 There's a basic `catalogue` resource declared in `app/routes.php` as a starting point for building an item catalogue.
 
-Take a look at `app/controllers/CatalogueController.php` for its setup. View templates are in `app/views/catalogue`, with localisation options
-for headings, labels, etc held in `app/lang/en/catalogue.php` and `app/lang/en/messages.php`. 
+Take a look at `app/controllers/CatalogueController.php` for its setup. There is a simple catalogue search, and a CSV import function included - you can configure the fields searched and imported in `app/models/Catalogue.php`. 
 
-To set it up, run the database migration provided (and optionally seed the database with a single test record). Alter the migration schema and update the Catalogue model at `app/models/Catalogue.php` to extend it.
+View templates are in `app/views/catalogue`, with localisation options for headings, labels, etc held in `app/lang/en/catalogue.php` and `app/lang/en/messages.php`. 
+
+To set it up, run the database migration provided. You can optionally seed the database with a single test record, or import a CSV to seed the database (look at `/app/database/seeds/CatalogueTableDataSeeder.php`). Alter the migration schema and update the Catalogue model at `app/models/Catalogue.php` to extend it.
 
 
 ##Front-end related
@@ -48,7 +50,7 @@ To set it up, run the database migration provided (and optionally seed the datab
 There is some [NUIG](http://nuigalway.ie) branding included (as this was created for NUIG projects) - you can delete that from the `app/views/layout/layout_main.blade.php` file if using for a non-NUIG project.
 
 ####LESS
-The skeleton uses [LESS](http://lesscss.org) for stylesheets. You'll need to use a pre-processor on them to generate the CSS - ([CodeKit](http://incident57.com/codekit/) and [Prepos](http://alphapixels.com/prepros/) are worth a look). Large parts of the styling are built on Twitter Bootstrap 3.0.*
+The skeleton uses [LESS](http://lesscss.org) for stylesheets. You'll need to use a pre-processor on them to generate the CSS - ([CodeKit](http://incident57.com/codekit/) and [Prepos](http://alphapixels.com/prepros/) are worth a look)...or you can use [Grunt](http://gruntjs.org) (there's a GruntFile included). Large parts of the styling are built on Twitter Bootstrap 3.0.*
 
 ####JavaScript
 It includes a number of JavaScript libraries at `/public/js/bower_components/`. Versions can be set/updated running `bower install` on `/public/bower.json`
@@ -57,9 +59,6 @@ It includes a number of JavaScript libraries at `/public/js/bower_components/`. 
 - [Leaflet.js](https://github.com/Leaflet/Leaflet) `leaflet/dist/leaflet.js`
 - [Modernizr](https://github.com/Modernizr/Modernizr) `modernizr/modernizr.js` (there's a .min.js version, but that's created by
 CodeKit, and is not downloaded as part of the library)
-- Google Code Prettify
-- Backbone.js
-- Underscore.js
 
 #### Grunt
 To use [Grunt](http://gruntjs.org), update `/public/package.json` and `/public/Gruntfile.js` as required, and run `npm install` in `/public`.

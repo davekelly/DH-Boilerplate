@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{{ Config::get('author.project_title', 'NUI Galway Project') }}</title>
 
-    <meta name="author" content="NUI Galway" />
+    <meta name="author" content="{{ Config::get('author.primary_author_name', 'NUI Galway') }}" />
     <meta name="copyright" content="Copyright NUI Galway" />
     <meta name="description" content="<?php echo (isset($pageTitle) ? $pageTitle : ''); ?>" />
 
@@ -49,7 +49,7 @@
         <img src="http://www.nuigalway.ie/images/logo.png" width="176" height="50" alt="NUI Galway logo" />
       </a>
     </div>
-    <div id="search-bar" class="col-12 col-sm-6 col-lg-4 col-offset-2">
+    <div id="search-bar" class="col-12 col-sm-6 col-lg-4">
         <div class="pull-right">
           @include('catalogue.partial.search_form')
         </div>
@@ -147,7 +147,7 @@
 
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
-  <script>window.jQuery && document.write(unescape('<script src="/bower_components/jquery/jquery.min.js"><\/script>'))</script>
+  <script>window.jQuery && document.write(unescape('<script src="/bower_components/jquery/dist/jquery.min.js"><\/script>'))</script>
 
   
   <?php // <script src="/bower_components/d3.min.js"></script> ?>

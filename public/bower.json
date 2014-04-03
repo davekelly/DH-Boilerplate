@@ -5,8 +5,7 @@
     "d3": "latest",
     "leaflet": "latest",
     "modernizr": "latest",
-    "google-code-prettify": "latest",
-    "jquery": "latest"
+    "bootstrap": "latest"
   },
   "ignore": [
     "**/.*",
