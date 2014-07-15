@@ -39,22 +39,17 @@ class CatalogueApiController extends \BaseController {
 		$catalogue = new Catalogue();	
 		$item = $catalogue->findOne( $id );
 
-		switch($format){
+		if(function_exists('jsonld_compact')){
+			// create json-ld for translator
+        	$context    = (object)$item->getJsonLdContext();
+        	$doc        = $item->mapToJsonLdContext($item);
 
-			case 'edf': 
-				return \Response::make(
-						\View::make(
-							'catalogue.edf.single_edf', 
-							array('item' => $item)
-						), 
-						200, 
-						array('Content-Type' => 'application/xml')
-					);
-				break;
-			default: 
-				return \Response::json($item);
-				break;
+        	// compact a document according to a particular context
+        	// see: http://json-ld.org/spec/latest/json-ld/#compacted-document-form
+        	$item = jsonld_compact($doc, $context);
 		}
+
+		return \Response::json($item);
 	}
 
 

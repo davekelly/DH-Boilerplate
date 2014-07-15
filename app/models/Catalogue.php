@@ -28,6 +28,65 @@ class Catalogue extends \Eloquent{
 	 */
 	protected $hidden = array('updated_at', 'created_at') ;
 
+
+	 /**
+     * Map properties to appropriate vocabularies
+     * 
+     * @todo  update values as appropriate 
+     * @var array
+     */
+    protected $jsonLdContext = array(
+        'title'         => 'http://schema.org/name', 
+        'description'   => 'http://schema.org/description', 
+        'location'      => 'http://schema.org/address', 
+        'image_url'     => 'http://schema.org/thumbnail', 
+        'thumb_url'     => 'http://schema.org/image', 
+        'geo_lon'       => 'http://schema.org/longitude', 
+        'geo_lat'       => 'http://schema.org/latitude'
+    );
+
+
+     /**
+     * Return the JSON-LD context
+     * 
+     * @return mixed
+     */
+    public function getJsonLdContext()
+    {
+        return $this->jsonLdContext;
+    }
+
+    /**
+     * Map JSON-LD context to object properties
+     * 
+     * @todo update @type to appropriate type
+     * 
+     * @param  Catalogue $catalogue [description]
+     * @return [type]               [description]
+     */
+    public function mapToJsonLdContext(Catalogue $catalogue)
+    {
+        $catArr = $catalogue->toArray();
+        $context  = $this->getJsonLdContext();
+
+        $output = array();
+
+        foreach($catArr as $key => $val){
+            if(isset($context[$key])){
+                $output[$context[$key]] = $val;
+            }
+        }
+        
+        // Add url identitifer
+        $output['@id'] = url('catalogue' . '/' . $catalogue->id);
+        $output['@type'] = 'Thing';
+        
+        $doc = (object)$output;
+
+        return $doc;
+    }
+
+
 	/**
 	 * Return all items
 	 * @param  boolean $hideInactive 

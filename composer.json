@@ -3,10 +3,8 @@
 	"description": "The Laravel Framework.",
 	"keywords": ["framework", "laravel"],
 	"require": {
-		"laravel/framework": "4.1.*",
-		"dflydev/markdown": "v1.0.2",
-		"guzzle/guzzle": "3.*",
-		"toin0u/geotools-laravel": "@stable"
+		"laravel/framework": "4.2.*",
+		"dflydev/markdown": "v1.0.2"
 	},
 	"require-dev": {
         "mockery/mockery": "dev-master@dev"

@@ -46,9 +46,11 @@ Route::group(array('prefix' => 'about'), function(){
 // .... go here...
 //
 
-// sample Europeana search integration...
-// ...can be deleted!!
-Route::get('/related', 'RelatedExampleController@getRelated');
+
+// sample Europeana search integration......can be deleted
+// Requires the installation of Guzzle through /composer.json
+// 
+// Route::get('/related', 'RelatedExampleController@getRelated');
 
 // Catalogue
 // ...delete if not needed...
@@ -106,42 +108,45 @@ Route::group(array('prefix' => 'api/v1'), function() {
 		return Auth::logout();
 	});
 
-	// display reminder form
-	Route::get('user/password-remind', function(){
-		return View::make('user.password_token');
-	});
-	// handle password reminder email
-	Route::post('user/password-remind', array('before' => 'csrf', function()
-	{
-	    $credentials = array('email' => Input::get('email'));
-	    return Password::remind($credentials);
-	}));
-
-	// display password reset page
-	Route::get('user/password-reset/{token}', function($token)
-	{
-	    return View::make('user.password_reset')->with('token', $token);
-	});
-	// process password reset request
-	Route::post('user/password-reset/{token}', array('before' => 'csrf', function()
-	{
-	    $credentials = array('email' => Input::get('email'));
-
-	    return Password::reset($credentials, function($user, $password)
-	    {
-	        $user->password = Hash::make($password);
-	        $user->save();
-
-	        return Redirect::to('user');
-	    });
-	}));
 	
-	// CRUD routes for Users
-	Route::get('/user/create', array('before' => 'auth', 'uses' => 'UserController@create'));
-	Route::post('/user/create', array('before' => 'auth', 'before' => 'csrf', 'uses' => 'UserController@store'));
-	Route::get('/user/{id}/edit', array('before' => 'auth', 'uses' => 'UserController@edit'));
-	Route::post('/user/{id}/edit', array('before' => 'auth', 'before' => 'csrf', 'uses' => 'UserController@update'));
-	Route::delete('/user/{id}/destroy', array('before' => 'auth', 'before' => 'csrf', 'uses' => 'UserController@destroy'));
+// -------------------------------------
+// User Routes
+// =====================================
+// user profile
+Route::get('user', array('before' => 'auth', 'as' => 'user', 'uses' => 'UserController@index'));
+
+// user login form
+Route::get('user/login', function(){
+	return View::make('user.login');
+});
+// handle user login
+Route::post('user/login', array('before' => 'csrf', 'uses' => 'UserController@processLogin'));
+
+// log user out
+Route::get('user/logout', function(){
+	Auth::logout();
+	return Redirect::to('/');
+});
+
+// Handle password reminders
+// @see http://laravel.com/docs/security#password-reminders-and-reset
+// Route::controller('password', 'RemindersController');
+
+
+
+// CRUD routes for Users
+Route::get('/user/create', array('before' => 'admin', 'uses' => 'UserController@create'));
+Route::post('/user', array('before' => 'admin', 'before' => 'csrf', 'uses' => 'UserController@store'));
+Route::get('/user/{id}/edit', array('before' => 'auth', 'uses' => 'UserController@edit'));
+Route::put('/user/{id}', array('before' => 'auth', 'before' => 'csrf', 'uses' => 'UserController@update'));
+// Route::delete('/user/{id}', array('before' => 'admin', 'before' => 'csrf', 'uses' => 'UserController@destroy'));
+
+
+// 
+// Settings
+// 
+// Route::get('settings/backup/{type?}', array('before' => 'auth', 'uses' => 'SettingsController@backup'));
+
 
 
 //--------------------------------------

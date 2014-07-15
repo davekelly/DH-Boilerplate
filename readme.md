@@ -54,6 +54,7 @@ The skeleton uses [LESS](http://lesscss.org) for stylesheets. You'll need to use
 
 ####JavaScript
 It includes a number of JavaScript libraries at `/public/js/bower_components/`. Versions can be set/updated running `bower install` on `/public/bower.json`
+
 - [d3](http://github.com/mbostock/d3) `d3/d3.min.js`
 - [jQuery](https://github.com/jquery/jquery) `jquery/jquery.min.js`
 - [Leaflet.js](https://github.com/Leaflet/Leaflet) `leaflet/dist/leaflet.js`
@@ -68,16 +69,30 @@ To use [Grunt](http://gruntjs.org), update `/public/package.json` and `/public/G
 ###[DocsReader](https://github.com/daylerees/docs-reader)
 The documentation is handled by the integrated [DocsReader](https://github.com/daylerees/docs-reader) which produces documentation from Markdown files. You can find the markdown source in `/docs`. (`/docs/documentation.md` contains the left side navigation).
 
-###[Guzzle](https://github.com/guzzle/guzzle) 
-A "PHP HTTP client & framework for building RESTful web service clients"
 
-###[GeoTools](https://github.com/toin0u/Geotools)
-"A geo-related library, built atop Geocoder and React libraries.". This can be removed by deleting `"toin0u/geotools-laravel": "@stable"` from `/composer.json`)
+##Recommended
 
-To enable GeoTools, you need to un-comment the GeoTools related lines in the `providers` and `aliases` sections of 
-`/app/config/app.php`. You can also use the `/app/config/geo.php` file for any geo related API keys, etc.
+###JSON-LD
+
+If this [JSON-LD Processor](https://github.com/digitalbazaar/php-json-ld) is included, the API will return compacted JSON-LD data. You will need to update the Context in `/models/Catalogue.php` to their correct Schema.org (or other) values.
+
+If adding the Processor, you can put it in `/app/helpers` and require it in `/app/start/global.php`.
 
 
+###Backups
+
+Add the following to `/composer.json`
+
+
+
+    "heybigname/backup-manager": "dev-master",
+    "dropbox/dropbox-sdk": "dev-master"
+
+
+
+...and follow the installation instructions in the [project's GitHub Readme](https://github.com/heybigname/backup-manager/). For Dropbox backups, you can configure a new Dropbox App through the through the [Dropbox Developer Portal](https://www.dropbox.com/developers/apps/).
+
+###Other options
 Some other optional integrations are included in the [NOTES.md](NOTES.md) file.
 
 
